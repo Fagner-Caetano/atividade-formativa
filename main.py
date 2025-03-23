@@ -24,9 +24,17 @@ def buscar_nome(lista_nomes, nome_busca):
 # Exemplo de uso
 nomes = ["Maria", "João", "Pedro", "Ana", "Carlos"]
 
-nome_para_buscar = input("Digite o nome que deseja buscar: ")
-
-if buscar_nome(nomes, nome_para_buscar):
-    print(f"O nome '{nome_para_buscar}' foi encontrado na lista!")
-else:
-    print(f"O nome '{nome_para_buscar}' não foi encontrado na lista.")
+# Loop principal
+while True:
+    nome_para_buscar = input("Digite o nome que deseja buscar: ")
+    
+    if buscar_nome(nomes, nome_para_buscar):
+        print(f"O nome '{nome_para_buscar}' foi encontrado na lista!")
+        break  # Sai do loop se encontrar o nome
+    else:
+        print(f"O nome '{nome_para_buscar}' não foi encontrado na lista.")
+        continuar = input("Deseja tentar outro nome? (s/n): ").lower()
+        
+        if continuar != 's':
+            print("Busca encerrada.")
+            break  # Sai do loop se o usuário não quiser continuar)
